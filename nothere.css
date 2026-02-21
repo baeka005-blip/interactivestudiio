@@ -1,0 +1,112 @@
+/* reset spacing */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+
+    /* CENTER TEXT */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    /* BACKGROUND IMAGE */
+    background-image: url("images/blueback.jpeg");
+    background-size: cover;          /* fills entire screen */
+    background-position: center;     /* keeps subject centered */
+    background-repeat: no-repeat;
+    background-attachment: fixed;    /* gives cinematic feel */
+
+    color:#b19ec5;
+    font-family: 'Dokdo', cursive;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55); /* darkness level */
+    z-index:-1;
+}
+
+
+/* keeps text readable */
+.container{
+    width:70%;
+    max-width:900px;
+}
+
+/* TYPEWRITER */
+.typewriter{
+    font-size:1.4rem;
+    line-height:1.8;
+    letter-spacing:0.02em;
+
+    overflow:hidden;
+    border-right:3px solid rgb(225, 222, 255);   /* cursor */
+
+    white-space:pre-wrap;
+
+    /* typing animation */
+    animation:
+        typing 25s steps(900, end),
+        blink 1s step-end infinite;
+}
+
+/* typing effect */
+@keyframes typing{
+    from { width:0 }
+    to { width:100% }
+}
+
+/* blinking cursor */
+@keyframes blink{
+    50% { border-color:transparent; }
+}
+
+
+
+
+
+
+
+
+.enter-btn{
+    display:inline-block;
+    margin-top:40px;
+    padding:12px 28px;
+
+    font-size:1rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-decoration:none;
+
+    color:white;
+    border:1px solid white;
+    background:transparent;
+
+    opacity:0;              /* hidden at first */
+    pointer-events:none;    /* not clickable */
+
+    transition: all 0.4s ease;
+
+    animation: reveal 2s forwards;
+    animation-delay: 26s;   /* matches typing duration */
+}
+
+/* hover effect */
+.enter-btn:hover{
+    background:white;
+    color:black;
+}
+
+/* fade in */
+@keyframes reveal{
+    to{
+        opacity:1;
+        pointer-events:auto;
+    }
+}

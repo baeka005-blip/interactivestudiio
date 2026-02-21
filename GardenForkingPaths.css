@@ -1,0 +1,474 @@
+
+
+body{
+  margin:0;
+  overflow: auto;
+  background:black;
+  display: flex;
+  justify-content: center;
+   overflow-x:hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+html {
+  overflow-x: auto;
+}
+
+
+.page{
+  position: relative;
+  width: 1500px;
+  height: 7650px;
+}
+
+.background{
+  width: 1500px;
+  height: 7650px;
+  display:block;
+}
+
+.introtext1{
+  position: absolute;
+  top: 150px;     /* distance from top of page */
+  left: 220px;    /* distance from left */
+
+  width: 200px;
+  color: #DB9999;
+  font-size: 12px;
+}
+
+.introtext2{
+  position: absolute;
+  top: 150px;     /* distance from top of page */
+  left: 520px;    /* distance from left */
+
+  width: 200px;
+  color: #DB9999;
+  font-size: 12px;
+}
+
+  
+  .introtext3{
+  position: absolute;
+  top: 150px;     /* distance from top of page */
+  right: 520px;    /* distance from left */
+
+  width: 200px;
+  color: #DB9999;
+  font-size: 12px;
+}
+
+
+.introtext4{
+  position: absolute;
+  top: 150px;     /* distance from top of page */
+  right: 220px;    /* distance from left */
+
+  width: 200px;
+  color: #DB9999;
+  font-size: 12px;
+}
+
+
+.introtext5{
+  position: absolute;
+  top: 195px;     /* distance from top of page */
+  left: 235px;    /* distance from left */
+
+  color: #E9C3C3;
+  font-size: 96px;
+  font-family: "Dosis", sans-serif;
+ 
+}
+
+.introtext6{
+  position: absolute;
+  top: 1095px;     /* distance from top of page */
+  left: 235px;    /* distance from left */
+
+  color: #E9C3C3;
+  font-size: 40px;
+  font-family: "Dosis", sans-serif;
+ 
+}
+
+.introtext7{
+  position: absolute;
+  top: 1595px;     /* distance from top of page */
+  right: 235px;    /* distance from left */
+
+  color: #E9C3C3;
+  font-size: 40px;
+  font-family: "Dosis", sans-serif;
+ 
+}
+
+.introtext8{
+  position: absolute;
+  top: 2095px;     /* distance from top of page */
+  left: 235px;    /* distance from left */
+
+  color: #E9C3C3;
+  font-size: 40px;
+  font-family: "Dosis", sans-serif;
+ 
+}
+
+.introtext9{
+  position: absolute;
+  top: 1500px;     /* distance from top of page */
+  left: 1005px;    /* distance from left */
+
+  color: #E9C3C3;
+  font-size: 12px;
+}
+
+.introtext10{
+  position: absolute;
+  top: 1000px;     /* distance from top of page */
+  right: 1235px;    /* distance from left */
+  width: 200px;
+  color: #E9C3C3;
+  font-size: 12px;
+}
+
+.introtext11{
+  position: absolute;
+  top: 2705px;     /* distance from top of page */
+  right: 235px;    /* distance from left */
+
+  color: #E9C3C3;
+  font-size: 40px;
+  font-family: "Dosis", sans-serif;
+ 
+}
+
+.introtext12{
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:800px;
+  max-width:900px;
+  text-align:center;
+
+  color:#7b4e56;
+  font-size:20px;
+  font-family:"Dosis", sans-serif;
+
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+  0%,100%{
+    color:#cfe6ff; /* slightly brighter than white-blue */
+    text-shadow:
+      0 0 2px #ffffff,
+      0 0 6px #7ec8ff,
+      0 0 14px #4db8ff,
+      0 0 28px rgba(0,140,255,0.8);
+  }
+
+  50%{
+    color:#ffffff;
+    text-shadow:
+      0 0 4px #ffffff,
+      0 0 12px #9ed8ff,
+      0 0 26px #5cc2ff,
+      0 0 55px rgba(0,140,255,1),
+      0 0 90px rgba(0,140,255,0.9);
+  }
+}
+
+
+
+
+/* makes positioning work relative to the page */
+body{
+    position: relative;
+    min-height: 2000px; /* remove later if not needed */
+}
+
+/* THE DOT */
+.dot{
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+
+    background-color: red;
+
+    cursor: pointer;
+
+    transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+
+.dot:hover{
+    transform: scale(1.4);
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
+    opacity: 0.85;
+}
+
+
+/* Tooltip using the data attribute */
+.dot::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%; /* position above the dot */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(233, 195, 195, 0.95);
+  color: #1c1c1c;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  font-family: "Dosis", sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+/* small arrow pointing down */
+.dot::before {
+  content: "";
+  position: absolute;
+  bottom: 115%; /* slightly above the dot */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(233,195,195,0.95) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Reveal tooltip on hover */
+.dot:hover::after,
+.dot:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px); /* subtle pop effect */
+}
+
+
+
+
+
+.dot-one{
+    background-color: #5B438E;
+}
+
+.dot-two{
+    background-color: #5B438E;
+}
+
+.dot-three{
+    background-color: #5B438E;
+}
+
+.dot-four{
+    background-color: #5B438E;
+}
+
+.dot-five{
+    background-color: #f6e4e7;
+}
+
+.dot-six{
+    background-color: #f6e4e7;
+}
+
+.dot-seven{
+    background-color: #f6e4e7;
+}
+
+.dot-eight{
+    background-color: #f6e4e7;
+}
+
+.dot-nine{
+    background-color: #f6e4e7;
+}
+
+.dot-ten{
+    background-color: #f6e4e7; /*#6d2b36 red*/
+}
+
+.dot-eleven{
+    background-color: #f6e4e7;
+}
+
+.dot-twelve{
+    background-color: #f6e4e7;
+}
+
+.dot-thirteen{
+    background-color: #f6e4e7;
+}
+
+.dot-fourteen{
+    background-color: #f6e4e7;
+}
+
+.dot-fifteen{
+    background-color: #f6e4e7;
+}
+
+.dot-sixteen{
+    background-color: #f6e4e7;
+}
+
+.dot-seventeen{
+    background-color: #f6e4e7;
+}
+
+.dot-eightteen{
+    background-color: #f6e4e7;
+}
+
+.dot-nineteen{
+    background-color: #f6e4e7;
+}
+
+.dot-twenty{
+    background-color: #f6e4e7;
+}
+
+.dot-twenone{
+    background-color: #f6e4e7;
+}
+
+.dot-twentwo{
+    background-color: #f6e4e7;
+}
+
+.dot-twenthree{
+    background-color: #f6e4e7;
+}
+
+.dot-twenfour{
+    background-color: #f6e4e7;
+}
+
+.dot-twenfive{
+    background-color: #f6e4e7;
+}
+
+.dot-twensix{
+    background-color: #f6e4e7;
+}
+
+.dot-twenseven{
+    background-color: #f6e4e7;
+}
+
+.dot-tweneight{
+    background-color: #f6e4e7;
+}
+
+.dot-twennine{
+    background-color: #f6e4e7;
+}
+
+.dot-thirty{
+    background-color: #f6e4e7;
+}
+
+
+
+
+
+
+
+
+
+
+
+.dot-small{
+    width: 15px;
+    height: 15px;
+}
+
+.dot-medium{
+    width: 25px;
+    height: 25px;
+}
+
+.dot-large{
+    width: 45px;
+    height: 45px;
+}
+
+.dot-verylarge{
+    width: 65px;
+    height: 65px;
+}
+
+
+
+
+.dot:hover::after{ /* makes the aftereffects from hovering */
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{ opacity: 1; transform: scale(1); }
+    100%{ opacity: 0; transform: scale(1.6); }
+}
+
+
+
+
+
+#welcome{
+    position:fixed;
+    inset:0;
+    background:rgb(173, 133, 133);
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition: opacity 1.3s ease, visibility 1.3s;
+}
+
+#welcome h1{
+    font-size: 42px;
+    letter-spacing: 4px;
+    font-family: "Dosis", sans-serif;
+    color: white;
+    animation: breathe 4s infinite alternate;
+}
+
+
+body:hover #welcome {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}

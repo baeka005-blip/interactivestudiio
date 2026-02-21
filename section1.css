@@ -1,0 +1,191 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-image: url("images/blueback.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+/* makes positioning work relative to the page */
+body{
+    position: relative;
+    min-height: 2000px; /* remove later if not needed */
+}
+
+/* THE DOT ITSELF */
+.dot{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+
+    animation: twinkle 3s infinite ease-in-out;
+    animation-delay: var(--delay);
+
+    transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+.dot:hover{
+    animation-play-state: paused;
+    transform: scale(1.6);
+    box-shadow: 0 0 18px white, 0 0 35px white;
+}
+
+
+.dot-one{
+    background-color: #97bbe8;
+}
+
+.dot-two{
+    background-color: #97bbe8;
+}
+
+.dot-three{
+    background-color: #97bbe8;
+}
+
+.dot-four{
+    background-color: #97bbe8;
+}
+
+.dot-five{
+    background-color: #97bbe8;
+}
+
+.dot-six{
+    background-color: #97bbe8;
+}
+
+.dot-seven{
+    background-color: #97bbe8;
+}
+
+
+
+
+
+
+
+/* =========================
+   EASY CONTROLS (EDIT THESE)
+   ========================= */
+
+:root{
+    --text-color: #b19ec5;
+    --text-size: 30px;
+    --font-family: 'Dokdo', cursive;
+
+    --float-speed: 35s;   /* bigger = slower wandering */
+}
+
+/* ========================= */
+
+body{
+
+    overflow:hidden; /* prevents scrollbars while it moves */
+}
+
+/* THE FLOATING WORDS */
+
+.floating-text{
+    position:fixed;
+    top:0;
+    left:0;
+
+    color:var(--text-color);
+    font-size:var(--text-size);
+     font-family: var(--font-family);
+    letter-spacing:2px;
+
+    user-select:none;
+    cursor:grab;
+
+    animation: wander var(--float-speed) linear infinite;
+    will-change: transform;
+}
+
+/* when hovering */
+.floating-text:hover{
+    text-shadow:0 0 12px rgba(255,255,255,0.6);
+}
+
+/* when you click and hold it */
+.floating-text:active{
+    cursor:grabbing;
+    animation-play-state: paused; /* THIS makes it feel draggable */
+}
+
+/* =========================
+   FLOATING PATH
+   (looks random but loops)
+   ========================= */
+
+@keyframes wander{
+
+    0%   { transform: translate(5vw, 10vh) rotate(0deg); }
+
+    12%  { transform: translate(50vw, 15vh) rotate(8deg); }
+
+    25%  { transform: translate(60vw, 45vh) rotate(-6deg); }
+
+    37%  { transform: translate(30vw, 50vh) rotate(5deg); }
+
+    50%  { transform: translate(10vw, 55vh) rotate(-4deg); }
+
+    62%  { transform: translate(60vw, 40vh) rotate(6deg); }
+
+    75%  { transform: translate(60vw, 10vh) rotate(-8deg); }
+
+    87%  { transform: translate(40vw, 25vh) rotate(4deg); }
+
+    100% { transform: translate(5vw, 10vh) rotate(0deg); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+    .floating-text{
+        animation:none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* STAR TWINKLE ANIMATION */
+@keyframes twinkle {
+    0%   { opacity: 0.35; transform: scale(0.85); box-shadow: 0 0 2px rgba(255,255,255,0.2); }
+    25%  { opacity: 1; transform: scale(1.15); box-shadow: 0 0 10px rgba(255,255,255,0.9); }
+    50%  { opacity: 0.6; transform: scale(0.95); box-shadow: 0 0 4px rgba(255,255,255,0.4); }
+    75%  { opacity: 1; transform: scale(1.2); box-shadow: 0 0 14px rgba(255,255,255,1); }
+    100% { opacity: 0.35; transform: scale(0.85); box-shadow: 0 0 2px rgba(255,255,255,0.2); }
+}
+
+.star-small { width:8px; height:8px; }
+.star-medium { width:14px; height:14px; }
+.star-big { width:22px; height:22px; }
